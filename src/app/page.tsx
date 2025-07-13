@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import namer from "color-namer";
+import { isDarkText } from "@/utils/isDarkText";
+import { rgbToHex } from "@/utils/rgbTohex";
 
 export default function Test1() {
     const [colors, setColors] = useState<string[]>([]);
@@ -24,31 +26,9 @@ export default function Test1() {
         };
     }, [Clicked]);
 
-    function isDarkColor(str: string) {
-        function isDark(r: number, g: number, b: number): boolean {
-            const yiq = (r * 299 + g * 587 + b * 114) / 1000;
-            return yiq < 128;
-        }
-        const [r, g, b] = str
-            .slice(4, -1)
-            .split(",")
-            .map((s) => Number(s.trim()));
-        return isDark(r, g, b);
-    }
 
-    function rgbToHex(str: string) {
-        const [r, g, b] = str
-            .slice(4, -1)
-            .split(",")
-            .map((s) => Number(s.trim()));
-        return (
-            "#" +
-            [r, g, b]
-                .map((x) => x.toString(16).padStart(2, "0"))
-                .join("")
-                .toUpperCase()
-        );
-    }
+
+
 
     function colorName(str: string) {
         const result = namer(rgbToHex(str));
@@ -83,7 +63,7 @@ export default function Test1() {
                 >
                     <div
                         className={`${
-                            isDarkColor(color) ? "text-white" : "text-black"
+                            isDarkText(color) ? "text-white" : "text-black"
                         } flex flex-col items-center justify-center`}
                     >
                         <div>{rgbToHex(color)}</div>
