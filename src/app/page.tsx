@@ -67,6 +67,7 @@ export default function Test1() {
                         } flex flex-col items-center justify-center`}
                     >
                         <div>{rgbToHex(color)}</div>
+                        <div>{color}</div>
                         <div className="text-xs w-fit mt-2  ">
                             {colorName(color).ntc[0].name.toUpperCase()}
                         </div>
