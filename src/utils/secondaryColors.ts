@@ -157,7 +157,7 @@ export function findSecondaryColors(primaryColor: RGB) {
 const primaryRed: RGB = { r: 255, g: 0, b: 0 };
 const secondaryColors = findSecondaryColors(primaryRed);
 
-console.log("Primary color:", primaryRed);
-console.log("Complementary:", secondaryColors.complementary);
-console.log("Analogous:", secondaryColors.analogous);
-console.log("Triadic:", secondaryColors.triadic);
+// console.log("Primary color:", primaryRed);
+// console.log("Complementary:", secondaryColors.complementary);
+// console.log("Analogous:", secondaryColors.analogous);
+// console.log("Triadic:", secondaryColors.triadic);
