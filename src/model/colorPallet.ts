@@ -46,7 +46,8 @@ const colorPalletSchema: Schema<ColorPallet> = new Schema({
         type: [String],
         required: true,
         maxlength: 5,
-        default: ['randomPallet'],
+        minlength: 1,
+        default: ['randomPallet'], //TODO when empty array is passed [] its saving as an empty array
     },
     colors: {
         type: [colorsSchema],

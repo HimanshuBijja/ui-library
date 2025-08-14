@@ -13,6 +13,7 @@ export async function POST(request: NextRequest) {
             {
                 success: false,
                 message: 'Zod check failed: Invalid data', //TODO check later remove "Zod check failed"
+                errors: ZodValidation.error.flatten().fieldErrors,
             },
             { status: 400 },
         );
@@ -42,13 +43,15 @@ export async function POST(request: NextRequest) {
                 { status: 409 },
             );
         }
-
+        if(types.length === 0) {
+            types.push("randomPallet");
+        }
         const newColorPallet = new ColorPalletModel({
             name,
             types,
             colors,
         });
-
+        
         await newColorPallet.save();
 
         return NextResponse.json(
