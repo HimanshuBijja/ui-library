@@ -6,6 +6,7 @@ type connectionObject = {
 }
 
 const connection: connectionObject = {
+    isConnected: 0,
 };
 
 async function dbconnect(){
@@ -22,3 +23,5 @@ async function dbconnect(){
         process.exit(1);
     }
 }
+
+export default dbconnect;

@@ -8,7 +8,7 @@ const colors = z.object({
 })
 
 export const colorPallet = z.object({
-    name: z.string().max(100).default,
+    name: z.string().max(100),
     types: z.array(z.string()).max(5).default(["randomPallet"]),
     colors: z.array(colors).max(10)
 })
